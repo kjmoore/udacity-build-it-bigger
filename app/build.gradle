@@ -38,6 +38,17 @@ android {
     dataBinding {
         enabled true
     }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        free {
+            applicationIdSuffix ".free"
+        }
+        paid {
+            applicationIdSuffix ".paid"
+        }
+    }
 }
 
 dependencies {
