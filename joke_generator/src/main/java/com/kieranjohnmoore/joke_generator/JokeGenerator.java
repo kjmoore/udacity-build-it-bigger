@@ -17,6 +17,6 @@ public class JokeGenerator {
 
 
     public String getJoke() {
-        return jokes[ThreadLocalRandom.current().nextInt(0, jokes.length + 1)];
+        return jokes[ThreadLocalRandom.current().nextInt(0, jokes.length)];
     }
 }
