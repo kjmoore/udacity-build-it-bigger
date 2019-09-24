@@ -17,10 +17,10 @@ public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
     private static final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi myApiService = null;
 
-    private WeakReference<MainActivity> activityReference;
+    private WeakReference<JokeDownloadedListener> listener;
 
-    public EndpointsAsyncTask(MainActivity app) {
-        this.activityReference = new WeakReference<>(app);
+    EndpointsAsyncTask(JokeDownloadedListener listener) {
+        this.listener = new WeakReference<>(listener);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
 
     @Override
     protected void onPostExecute(String joke) {
-        final MainActivity app = activityReference.get();
+        final JokeDownloadedListener app = listener.get();
         if (app != null) {
             app.jokeDownloaded(joke);
         }

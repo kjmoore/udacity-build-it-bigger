@@ -11,7 +11,7 @@ import com.kieranjohnmoore.jokelibrary.JokeActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements JokeDownloadedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new EndpointsAsyncTask(this).execute();
     }
 
+    @Override
     public void jokeDownloaded(String joke) {
         final Intent intent = new Intent(this, JokeActivity.class);
         intent.putExtra(JokeActivity.JOKE, joke);
