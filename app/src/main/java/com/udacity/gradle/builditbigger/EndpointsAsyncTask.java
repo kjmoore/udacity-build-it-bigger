@@ -42,7 +42,7 @@ public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
             Log.d(TAG, "Got Joke: " + joke);
             return joke;
         } catch (IOException e) {
-            return e.getMessage();
+            return null;
         }
     }
 
